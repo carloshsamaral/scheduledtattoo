@@ -15,15 +15,14 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class StudiosPutRequest {
+public class StudiosDeleteRequest {
 
 	@JsonProperty("id_studio")
 	private Integer idStudio;
-	@JsonProperty("nomeFantasia")
-	private String nomeFantasia;
-	@JsonProperty("razaoSocial")
-	private String razaoSocial;
-	@JsonProperty("cnpj")
-	private String cnpj;
+	@JsonProperty("flag_ativo")
+	private String flag_ativo;
+	@JsonProperty("flag_removido")
+	private String flag_removido;
+
 	
 }

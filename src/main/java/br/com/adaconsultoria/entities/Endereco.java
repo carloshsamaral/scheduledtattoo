@@ -14,27 +14,35 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="studio")
+@Table(name = "Endereco")
 @Setter
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
-public class Studio {
+public class Endereco {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_studio")
-	private Integer id_studio;
-	@Column(name="nome_fantasia", length = 255, nullable = false)
-	private String nomeFantasia;
-	@Column(name="razao_social", length = 255, nullable = false)
-	private String razaoSocial;
-	@Column(name="cnpj", length = 255, nullable = false, unique = true)
-	private String cnpj;	
-	@Column(name="flag_ativo", length = 1)
+	@Column(name = "id_endereco")
+	private Integer id_endereco;
+
+	@Column(name = "cep")
+	private String cep;
+	@Column(name = "logradouro")
+	private String logradouro;
+	@Column(name = "complemento")
+	private String complemento;
+	@Column(name = "bairro")
+	private String bairro;
+	@Column(name = "localidade")
+	private String localidade;
+	@Column(name = "uf")
+	private String uf;
+
+	@Column(name = "flag_ativo", length = 1)
 	private String flag_ativo;
-	@Column(name="flag_removido", length = 1)
+	@Column(name = "flag_removido", length = 1)
 	private String flag_removido;
-	
+
 }

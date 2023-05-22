@@ -9,21 +9,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+
 @Setter
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class StudiosPutRequest {
+public class PessoaPutRequest {
 
-	@JsonProperty("id_studio")
-	private Integer idStudio;
-	@JsonProperty("nomeFantasia")
-	private String nomeFantasia;
-	@JsonProperty("razaoSocial")
-	private String razaoSocial;
-	@JsonProperty("cnpj")
-	private String cnpj;
-	
+	@JsonProperty("id_pessoa")
+	private Integer id_pessoa;
+	@JsonProperty("flag_ativo")
+	private String flag_ativo;
+	@JsonProperty("flag_removido")
+	private String flag_removido;
+
 }
