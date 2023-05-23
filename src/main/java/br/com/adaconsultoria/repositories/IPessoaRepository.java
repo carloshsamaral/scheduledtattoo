@@ -5,7 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import br.com.adaconsultoria.entities.Pessoa;
-import br.com.adaconsultoria.entities.Studio;
 
 public interface IPessoaRepository extends CrudRepository<Pessoa, Integer> {
 

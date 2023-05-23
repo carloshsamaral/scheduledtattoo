@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiOperation;
 @Controller
 public class StudiosController {
 
-	private static final String ENDPOINT = "/api/studios";
+	private static final String ENDPOINT = "/api/studio";
 
 	@Autowired
 	private IStudioRepository studioRepository;

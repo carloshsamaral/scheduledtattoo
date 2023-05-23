@@ -1,5 +1,8 @@
 package br.com.adaconsultoria.requests;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import br.com.adaconsultoria.enums.TipoPessoa;
@@ -32,6 +35,6 @@ public class PessoaPostRequest {
 	private TipoPessoa tipoPessoa;
 	
 	@JsonProperty("endereco")
-	private EnderecoPostRequest endereco;
+	private List<EnderecoPostRequest> enderecoList = new ArrayList<>();
 
 }
