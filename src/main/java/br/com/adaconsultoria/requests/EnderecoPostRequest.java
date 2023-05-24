@@ -30,6 +30,8 @@ public class EnderecoPostRequest {
 	private String localidade;
 	@JsonProperty("uf")
 	private String uf;
+	@JsonProperty("id_pessoa")
+	private Integer id_pessoa;
 
 
 }

@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.adaconsultoria.entities.Endereco;
+import br.com.adaconsultoria.entities.Pessoa;
 import br.com.adaconsultoria.repositories.IEnderecoRepository;
+import br.com.adaconsultoria.repositories.IPessoaRepository;
 import br.com.adaconsultoria.requests.EnderecoDeleteRequest;
 import br.com.adaconsultoria.requests.EnderecoPostRequest;
 import br.com.adaconsultoria.requests.EnderecoPutRequest;
@@ -29,12 +31,21 @@ public class EnderecoController {
 	@Autowired
 	private IEnderecoRepository enderecoRepository;
 	
+	@Autowired
+	private IPessoaRepository pessoaRepository;
+	
 	@ApiOperation("Endpoint para inserir o endereço")
 	@RequestMapping(value = ENDPOINT, method = RequestMethod.POST)
 	public ResponseEntity<String> post(@RequestBody EnderecoPostRequest request){
 		try {
+			
+			Optional<Pessoa> pessoa = pessoaRepository.findById(request.getId_pessoa());
+			
+			Pessoa p = pessoa.get();
+			
 			Endereco e = new Endereco();
-
+			
+			
 			e.setBairro(request.getBairro());
 			e.setCep(request.getCep());
 			e.setComplemento(request.getComplemento());
@@ -43,6 +54,7 @@ public class EnderecoController {
 			e.setLocalidade(request.getLocalidade());
 			e.setLogradouro(request.getLogradouro());
 			e.setUf(request.getUf());
+			e.setPessoa(p);
 			
 			enderecoRepository.save(e);
 			
@@ -109,7 +121,7 @@ public class EnderecoController {
 			e.setLogradouro(request.getLogradouro());
 			e.setUf(request.getUf());
 			e.setId_endereco(request.getId_endereco());
-			
+			e.setPessoa(enderecoRepository.findById(request.getId_endereco()).get().getPessoa());
 			enderecoRepository.save(e);
 			
 			return ResponseEntity.status(HttpStatus.CREATED).body("Endereço atualizada com sucesso");
