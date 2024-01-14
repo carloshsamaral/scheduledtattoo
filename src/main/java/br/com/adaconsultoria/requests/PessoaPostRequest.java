@@ -1,6 +1,5 @@
 package br.com.adaconsultoria.requests;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,6 +21,8 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class PessoaPostRequest {
 
+	@JsonProperty("id_pessoa")
+	private Integer id_pessoa;
 	@JsonProperty("nome")
 	private String nome;
 	@JsonProperty("email")
@@ -30,11 +31,18 @@ public class PessoaPostRequest {
 	private String telefone;
 	@JsonProperty("cpf")
 	private String cpf;
-
+	
 	@JsonProperty("tipoPessoa")
 	private TipoPessoa tipoPessoa;
 	
-	@JsonProperty("endereco")
-	private List<EnderecoPostRequest> enderecoList = new ArrayList<>();
+	
+	@JsonProperty("flag_ativo")
+	private String flag_ativo;
+	@JsonProperty("flag_removido")
+	private String flag_removido;
+	public List<EnderecoPostRequest> getEnderecoList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

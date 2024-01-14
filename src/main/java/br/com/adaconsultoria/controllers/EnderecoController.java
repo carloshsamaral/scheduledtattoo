@@ -37,8 +37,7 @@ public class EnderecoController {
 	@ApiOperation("Endpoint para inserir o endereço")
 	@RequestMapping(value = ENDPOINT, method = RequestMethod.POST)
 	public ResponseEntity<String> post(@RequestBody EnderecoPostRequest request){
-		System.out.println(enderecoRepository);
-		System.out.println(pessoaRepository);
+
 		try {
 			
 			Optional<Pessoa> pessoa = pessoaRepository.findById(request.getId_pessoa());
